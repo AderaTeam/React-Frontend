@@ -1,6 +1,7 @@
 /* Reset and base styles  */
 body {
-	background: white;
+	font-weight: 400;
+	background-color: black;
 }
 
 * {

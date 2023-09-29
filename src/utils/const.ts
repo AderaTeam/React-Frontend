@@ -1,5 +1,5 @@
 export const HOME_ROUTE = '/';
-export const CLASSES_ROUTE = '/registration';
-export const ACCOUNT_ROUTE = '/account';
-export const HISTORY_ROUTE = '/history';
 export const ANALYSIS_ROUTE = '/analysis';
+export const TEST_ROUTE = '/test';
+export const LOGIN_ROUTE = '/login';
+export const REGISTRATION_ROUTE = '/registration';

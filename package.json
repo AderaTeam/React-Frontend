@@ -10,9 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mantine/core": "^7.0.2",
-    "@mantine/hooks": "^7.0.2",
+    "@mantine/core": "^6.0.11",
+    "@mantine/hooks": "^6.0.11",
     "@pbe/react-yandex-maps": "^1.2.4",
+    "@tabler/icons-react": "^2.37.0",
     "@types/axios": "^0.14.0",
     "axios": "^1.5.1",
     "mobx": "^6.10.2",
