@@ -1,7 +1,6 @@
 import { Flex, Stack, Image, Title, Text, Button } from "@mantine/core";
 import { observer } from "mobx-react-lite";
 import FullWidthWrapper from "../../components/Wrappers/FullWidthWrapper";
-import avatar from '../../assets/avatar_big.png';
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../main";
 import { UserTypes } from "../../utils/UsersTypes";
@@ -40,7 +39,7 @@ const ResultPage = () => {
               <Button color="indigo.7" className="button" w={223} h={48}>На главную страницу</Button>
             </NavLink>  
         </Stack>
-        <Image src={avatar} width={400} height={400}/>
+        <Image src={type?.image} width={400} height={400}/>
       </Flex>
     </FullWidthWrapper>    
     );

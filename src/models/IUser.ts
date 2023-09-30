@@ -4,4 +4,5 @@ export interface IUser {
     username: string;
     role: string;
     type: string | null;
+    isPlan: boolean;
 }
