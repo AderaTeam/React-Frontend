@@ -23,11 +23,53 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       globalStyles: (theme) => ({
         '.input': {
           input: {
-            background: '#F8F9FA',
-            border: '1px solid #ADB5BD'
+            height: '72px',
+            width: '232px',
+            border: '1px solid #E9ECEF',
+            borderRadius: '24px',
+            padding: '24px',
+            fontSize: '16px',
+            lineHeight: '24px',
           },
           label: {
               marginBottom: '6px',
+              fontSize: '16px',
+              lineHeight: '22px'
+          },
+          button: {
+            background: '#F8F9FA'
+          }
+        },
+        '.inputMini': {
+          input: {
+            height: '72px',
+            width: '187px',
+            border: '1px solid #E9ECEF',
+            borderRadius: '24px',
+            padding: '24px',
+            fontSize: '16px',
+            lineHeight: '24px',
+          },
+          label: {
+              marginBottom: '6px',
+              fontSize: '16px',
+              lineHeight: '22px'
+          },
+        },
+        '.inputAge': {
+          input: {
+            height: '72px',
+            width: '120px',
+            border: '1px solid #E9ECEF',
+            borderRadius: '24px',
+            padding: '24px',
+            fontSize: '16px',
+            lineHeight: '24px',
+          },
+          label: {
+              marginBottom: '6px',
+              fontSize: '16px',
+              lineHeight: '22px'
           },
           button: {
             background: '#F8F9FA'

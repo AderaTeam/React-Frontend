@@ -1,10 +1,9 @@
 import HomePage from "../pages/HomePage/HomePage";
-import AnalysisPage from "../pages/AnalysisPage/AnalysisPage";
 import AuthPage from "../pages/AuthPage";
-
 import { HOME_ROUTE, PLAN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, TEST_ROUTE, RESULT_ROUTE } from "./const";
 import TestPage from "../pages/TestPage/TestPage";
 import ResultPage from "../pages/ResultPage/ResultPage";
+import PlanPage from "../pages/PlanPage/PlanPage";
 
 export const authRoutes = [
   {
@@ -14,7 +13,7 @@ export const authRoutes = [
   },
   {
     path: PLAN_ROUTE,
-    Component: AnalysisPage,
+    Component: PlanPage,
     title: 'Мой персональный план',
   },
   {
