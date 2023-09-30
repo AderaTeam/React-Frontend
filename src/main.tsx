@@ -60,6 +60,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
               lineHeight: '22px'
           },
         },
+        '.autocomplete': {
+          input: {
+            width: '410px'
+          }
+        },
         '.inputAge': {
           input: {
             height: '72px',

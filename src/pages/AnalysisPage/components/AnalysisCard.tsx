@@ -11,9 +11,10 @@ type Props = {
 
 const AnalysisCard = ({title} : Props) => {
   const [vvp, setVvp] = useState<string>('10000');
+  
   const [externalLoading, setExternalLoading] = useState<boolean>(false);
-    const [pointLoading, setPointLoading] = useState<boolean>(false);
-    const { AStore } = useContext(Context);
+  const [pointLoading, setPointLoading] = useState<boolean>(false);
+  const { AStore } = useContext(Context);
 
     useEffect(() => {
         setExternalLoading(AStore.isExternalLoading);
@@ -23,8 +24,8 @@ const AnalysisCard = ({title} : Props) => {
   return (
     <Stack spacing={24} bg={'#ffff'} style={{borderRadius: '16px'}} p={'32px 24px'}>
       <LoadingOverlay 
-          visible={(externalLoading && title==='Внутренний анализ') || (pointLoading && title==='Точечный анализ')} 
-          overlayBlur={2} loaderProps={{color: 'indigo.5'}}/>
+        visible={(externalLoading && title==='Внутренний анализ') || (pointLoading && title==='Точечный анализ')} 
+        overlayBlur={2} loaderProps={{color: 'indigo.5'}}/>
       <CardTitle title={title}/>
       {title === 'Внешний анализ' ? <CardExternalFrom vvp={vvp} setVvp={setVvp}/> : 
       <CardPointForm/>}

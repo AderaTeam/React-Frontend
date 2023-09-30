@@ -8,8 +8,21 @@ import { CURRENT_ANALYSIS_ROUT } from "../../../utils/const";
 
 const CardPointForm = () => {
   const [tab, setTab] = useState<string>('id');
+  const [selectedId, setSelectedId] = useState<string>('');
+  const [behavior, setBehavior] = useState<string | null>('');
   const { AStore } = useContext(Context);
   const navigate = useNavigate();
+
+  const disable = () => {
+    if (tab === 'id' && selectedId) {
+      return false;
+    } else if (tab === 'behavior' && behavior) {
+      return false;
+    } else if (tab === 'allPeople') {
+      return false;
+    }
+    return true;
+  };
 
   const handlePost = () => {
     if (tab === 'id') {
@@ -36,9 +49,15 @@ const CardPointForm = () => {
         ]}
       />
       <Flex justify={"space-between"}>
-        <PointOption option={tab}/>
+        <PointOption 
+          option={tab}
+          setSelectedId={setSelectedId}
+          selectedId={selectedId}
+          setBehavior={setBehavior}
+          behavior={behavior}
+        />
         <Button
-          disabled={AStore.isExternalLoading}
+          disabled={AStore.isExternalLoading || disable()}
           style={{marginLeft: 'auto'}}
           onClick={
             AStore.currentPointAnalysis ? 
@@ -50,7 +69,6 @@ const CardPointForm = () => {
           className="button"
         >
           {AStore.currentPointAnalysis ? 'К результату' : 'Анализировать'}
-          Анализировать
         </Button>
       </Flex>
     </Stack>

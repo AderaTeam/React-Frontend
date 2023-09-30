@@ -1,26 +1,26 @@
 import { AxiosResponse } from "axios";
-import $api from "../http";
+import { $apiPython } from "../http";
 import { IUserId } from "../models/IUserId";
 
 export default class AnalysisServices {
 
   static async externalAnalysis(vvp: string): Promise <AxiosResponse> {
-    return $api.post(vvp);
+    return $apiPython.post(vvp);
   };
 
   static async pointAnalysisAllPeople(): Promise<AxiosResponse> {
-    return $api.get('/');
+    return $apiPython.get('/');
   }
 
   static async pointAnalysisId(): Promise<AxiosResponse> {
-    return $api.post('/');
+    return $apiPython.post('/');
   }
 
   static async pointAnalysisBehavior(): Promise<AxiosResponse> {
-    return $api.post('/');
+    return $apiPython.post('/');
   }
 
-  static async getId(): Promise<AxiosResponse<IUserId[]>> {
-    return $api.get<IUserId[]>('/');
+  static async getId(): Promise<AxiosResponse<IUserId>> {
+    return $apiPython.get<IUserId>('/ids');
   }
 }

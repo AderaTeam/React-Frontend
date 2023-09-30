@@ -5,11 +5,12 @@ import ResultPage from "../pages/ResultPage/ResultPage";
 import PlanPage from "../pages/PlanPage/PlanPage";
 import HistoryPage from "../pages/HistoryPage/HistoryPage";
 import AnalysisPage from "../pages/AnalysisPage/AnalysisPage";
+import CurrentAnalysisPage from "../pages/CurrentAnalysisPage/CurrentAnalysisPage";
 
-import { HOME_ROUTE, PLAN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, TEST_ROUTE, RESULT_ROUTE, HISTORY_ROUTE, ANALYSIS_ROUTE, CURRENT_ANALYSIS_ROUT } from "./const";
+import { HOME_ROUTE, PLAN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, 
+  TEST_ROUTE, RESULT_ROUTE, HISTORY_ROUTE, ANALYSIS_ROUTE, CURRENT_ANALYSIS_ROUT } from "./const";
 
 import { IconDeviceAnalytics, IconHistory } from '@tabler/icons-react';
-import CurrentAnalysisPage from "../components/CurrentAnalysisPage/CurrentAnalysisPage";
 
 export const authRoutes = [
   {

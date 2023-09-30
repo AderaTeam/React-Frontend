@@ -19,7 +19,7 @@ const CardExternalFrom = ({vvp, setVvp}: props) => {
 				<Stack spacing={6}>
           <TextInput
 						value={vvp}
-						onChange={(e) => setVvp(+e)}
+						onChange={(e) => setVvp(e.currentTarget.value)}
             label="ВВП"
             className="inputMini"
           />
@@ -47,7 +47,7 @@ const CardExternalFrom = ({vvp, setVvp}: props) => {
 				</Stack>
 			</Flex>
 			<Button
-        disabled={AStore.isPointLoading}
+        disabled={AStore.isPointLoading || !vvp}
         onClick={
           AStore.currentExternalAnalysis ? 
           () => navigate(CURRENT_ANALYSIS_ROUT + '/' + 0) :

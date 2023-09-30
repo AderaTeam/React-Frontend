@@ -1,3 +1,6 @@
+export interface ids {
+  id: string
+}
 export interface IUserId {
-  id: string,
+  ids: string[],
 }
