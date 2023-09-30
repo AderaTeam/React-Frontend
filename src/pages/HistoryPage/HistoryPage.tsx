@@ -1,8 +1,12 @@
+import AnalistWrapper from "../../components/Wrappers/AnalistWrapper";
+
 const HistoryPage = () => {
 
-    return (
-        <div></div>
-    );
+  return (
+    <AnalistWrapper>
+      <></>
+    </AnalistWrapper>
+  );
 };
 
 export default HistoryPage;

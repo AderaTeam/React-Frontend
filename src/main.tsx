@@ -3,24 +3,28 @@ import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import { MantineProvider } from '@mantine/core';
 import UserStore from './store/UserStore.ts';
+import AnalysisStore from './store/AnalysisStore.ts';
 
 interface State {
   UStore: UserStore,
+  AStore: AnalysisStore,
 }
 
 const UStore = new UserStore();
+const AStore = new AnalysisStore();
 
 export const Context = createContext<State>({
   UStore,
+  AStore
 })
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <Context.Provider value={{ UStore }}>
+  <Context.Provider value={{ UStore, AStore }}>
   <MantineProvider
     withGlobalStyles
     withNormalizeCSS
     theme={{
-      globalStyles: (theme) => ({
+      globalStyles: () => ({
         '.input': {
           input: {
             height: '72px',

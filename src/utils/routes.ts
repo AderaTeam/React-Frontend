@@ -40,19 +40,19 @@ export const authRoutes = [
     icon: IconDeviceAnalytics
   },
   {
-    path: HISTORY_ROUTE,
-    Component: HistoryPage,
-    title: 'История',
-    isAdmin: true,
-    icon: IconDeviceAnalytics
-  },
-  {
     path: ANALYSIS_ROUTE,
     Component: AnalysisPage,
     title: 'Виды анализа',
     isAdmin: true,
+    icon: IconDeviceAnalytics
+  },
+  {
+    path: HISTORY_ROUTE,
+    Component: HistoryPage,
+    title: 'История',
+    isAdmin: true,
     icon: IconHistory
-  }
+  },
 ]
 
 export const publicRoutes = [

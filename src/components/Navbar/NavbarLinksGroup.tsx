@@ -46,7 +46,7 @@ const NavbarLink = ({icon: Icon, path, title}: LinksProps) => {
 		<NavLink to={path}>
 			<Flex align="center" gap={8} className={classes.link}>
 				<Icon stroke="1.5" />
-				<Text lh={'24px'} size="md">{title}</Text>
+				<Text lh={'24px'} size="md">{title === 'Виды анализа' ? 'Прогнозирование' : title}</Text>
 			</Flex>
 		</NavLink>
 	);

@@ -13,13 +13,14 @@ const AppRouter = () => {
 
   if (UStore.isAuth && (location.pathname === '/login' || location.pathname === '/registration')) {
     return <Navigate to='/' replace/>
-  };
+  }
 
   if (!UStore.isAuth && 
     (location.pathname === '/' || location.pathname === '/test' || location.pathname === '/test/result' ||
-    location.pathname === '/plan' || location.pathname === '/maps')) {
+    location.pathname === '/plan' || location.pathname === '/maps' || 
+    location.pathname === '/history' || location.pathname === '/analysis')) {
     return <Navigate to='/login' replace/>
-  };
+  }
 
   if (!UStore.user.type && location.pathname === '/test/result') {
     return <Navigate to='/test' replace/>
@@ -27,6 +28,10 @@ const AppRouter = () => {
 
   if (UStore.user.type && location.pathname === '/test') {
     return <Navigate to='/test/result' replace/>
+  }
+
+  if (UStore.isAuth && UStore.user.role !== 'user' && (location.pathname !== '/history' && location.pathname !== '/analysis')) {
+    return <Navigate to='/analysis' replace/>
   }
 
   return(

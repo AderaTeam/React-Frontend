@@ -47,8 +47,8 @@ const NavbarNested = () => {
 
       <Navbar.Section className={classes.footer}>
         <Flex align={'center'}>
-        Аналитик {UStore.user.username.split(' ')[0]} 
-        <IconLogout width={16} stroke={1.5} style={{marginLeft: '9px', cursor: 'pointer'}} onClick={() => UStore.logout()}/>
+          Аналитик {UStore.user.username.split(' ')[0]} 
+          <IconLogout width={16} stroke={1.5} style={{marginLeft: '9px', cursor: 'pointer'}} onClick={() => UStore.logout()}/>
         </Flex>
       </Navbar.Section>
     </Navbar>
