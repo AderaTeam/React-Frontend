@@ -13,7 +13,7 @@ const FullWidthWrapper = ({children} : Props) => {
   const navigate = useNavigate();
 
   return (
-      <Stack p={'40px 200px'} spacing={40}>
+      <Stack bg={'gray.0'} p={'40px 200px'} spacing={40}>
         <Flex gap={24} w={1520}>
           {title === 'Тестирование' && 
             <ActionIcon radius={'1rem'} style={{background: 'white'}} w={56} h={56} onClick={() => navigate(-1)}>

@@ -2,8 +2,9 @@ import HomePage from "../pages/HomePage/HomePage";
 import AnalysisPage from "../pages/AnalysisPage/AnalysisPage";
 import AuthPage from "../pages/AuthPage";
 
-import { HOME_ROUTE, ANALYSIS_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, TEST_ROUTE } from "./const";
+import { HOME_ROUTE, PLAN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, TEST_ROUTE, RESULT_ROUTE } from "./const";
 import TestPage from "../pages/TestPage/TestPage";
+import ResultPage from "../pages/ResultPage/ResultPage";
 
 export const authRoutes = [
   {
@@ -12,7 +13,7 @@ export const authRoutes = [
     title: 'Главная страница',
   },
   {
-    path: ANALYSIS_ROUTE,
+    path: PLAN_ROUTE,
     Component: AnalysisPage,
     title: 'Мой персональный план',
   },
@@ -20,6 +21,11 @@ export const authRoutes = [
     path: TEST_ROUTE,
     Component: TestPage,
     title: 'Тестирование'
+  },
+  {
+    path: RESULT_ROUTE,
+    Component: ResultPage,
+    title: 'Результат тестирования'
   }
 ]
 

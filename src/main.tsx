@@ -37,6 +37,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           fontWeight: 500,
           fontSize: '16px',
           lineHeight: '24px',
+        },
+        '.radio': {
+          label: {
+            paddingLeft: '8px',
+            fontSize: '18px'
+          }
         }
       }),
       defaultRadius: '0.5rem',
