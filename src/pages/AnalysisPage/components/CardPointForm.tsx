@@ -3,10 +3,23 @@ import { useContext, useState } from "react";
 import { Context } from "../../../main";
 import PointOption from "./PointOption";
 import { observer } from "mobx-react-lite";
+import { useNavigate } from "react-router-dom";
+import { CURRENT_ANALYSIS_ROUT } from "../../../utils/const";
 
 const CardPointForm = () => {
   const [tab, setTab] = useState<string>('id');
   const { AStore } = useContext(Context);
+  const navigate = useNavigate();
+
+  const handlePost = () => {
+    if (tab === 'id') {
+      AStore.pointAnalysisId();
+    } else if (tab === 'behavior') {
+      AStore.pointAnalysisBehavior;
+    } else if (tab === 'allPeople') {
+      AStore.pointAnalysisAllPeople();
+    };  
+  };
 
   return (
     <Stack spacing={24}>
@@ -25,13 +38,19 @@ const CardPointForm = () => {
       <Flex justify={"space-between"}>
         <PointOption option={tab}/>
         <Button
+          disabled={AStore.isExternalLoading}
           style={{marginLeft: 'auto'}}
-          onClick={() => console.log(1)}
+          onClick={
+            AStore.currentPointAnalysis ? 
+            () => navigate(CURRENT_ANALYSIS_ROUT + '/' + 0) :
+            () => handlePost()
+          }
           w={194} h={51} 
           color="indigo.7" 
           className="button"
         >
-            Анализировать
+          {AStore.currentPointAnalysis ? 'К результату' : 'Анализировать'}
+          Анализировать
         </Button>
       </Flex>
     </Stack>

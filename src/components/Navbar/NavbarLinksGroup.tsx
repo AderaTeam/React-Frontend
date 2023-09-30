@@ -55,7 +55,7 @@ const NavbarLink = ({icon: Icon, path, title}: LinksProps) => {
 const NavbarLinksGroup = () => {
 
 	const links = authRoutes.map((link) => {
-		if (link.isAdmin) {
+		if (link.isAdmin && link.title !== 'Результаты анализа') {
 			return (
 				<NavbarLink
 					{...link}

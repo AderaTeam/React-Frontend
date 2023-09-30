@@ -1,6 +1,8 @@
 import { Button, Flex, NumberInput, Stack, Text, TextInput } from "@mantine/core";
 import { useContext } from "react";
 import { Context } from "../../../main";
+import { useNavigate } from "react-router-dom";
+import { CURRENT_ANALYSIS_ROUT } from "../../../utils/const";
 
 interface props {
 	vvp: string,
@@ -9,6 +11,7 @@ interface props {
 
 const CardExternalFrom = ({vvp, setVvp}: props) => {
   const { AStore } = useContext(Context);
+  const navigate = useNavigate();
 
   return (
 		<Flex justify={'space-between'} align={'flex-end'}>
@@ -44,7 +47,12 @@ const CardExternalFrom = ({vvp, setVvp}: props) => {
 				</Stack>
 			</Flex>
 			<Button
-        onClick={() => AStore.externalAnalysis(vvp)}
+        disabled={AStore.isPointLoading}
+        onClick={
+          AStore.currentExternalAnalysis ? 
+          () => navigate(CURRENT_ANALYSIS_ROUT + '/' + 0) :
+          () => AStore.externalAnalysis(vvp)
+        }
         w={194} h={51} 
         color="indigo.7" 
         className="button"

@@ -6,9 +6,10 @@ import PlanPage from "../pages/PlanPage/PlanPage";
 import HistoryPage from "../pages/HistoryPage/HistoryPage";
 import AnalysisPage from "../pages/AnalysisPage/AnalysisPage";
 
-import { HOME_ROUTE, PLAN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, TEST_ROUTE, RESULT_ROUTE, HISTORY_ROUTE, ANALYSIS_ROUTE } from "./const";
+import { HOME_ROUTE, PLAN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, TEST_ROUTE, RESULT_ROUTE, HISTORY_ROUTE, ANALYSIS_ROUTE, CURRENT_ANALYSIS_ROUT } from "./const";
 
 import { IconDeviceAnalytics, IconHistory } from '@tabler/icons-react';
+import CurrentAnalysisPage from "../components/CurrentAnalysisPage/CurrentAnalysisPage";
 
 export const authRoutes = [
   {
@@ -46,6 +47,13 @@ export const authRoutes = [
     isAdmin: true,
     icon: IconDeviceAnalytics
   },
+  {
+    path: CURRENT_ANALYSIS_ROUT + '/:id',
+    Component: CurrentAnalysisPage,
+    title: 'Результаты анализа',
+    icon: IconHistory,
+    isAdmin: true
+},
   {
     path: HISTORY_ROUTE,
     Component: HistoryPage,
