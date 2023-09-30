@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { Context } from "../main";
 import { observer } from "mobx-react-lite";
 import Header from "./Header/Header";
+import NavbarNested from "./Navbar/Navbar";
 
 const AppRouter = () => {
   const { UStore } = useContext(Context);
@@ -30,8 +31,13 @@ const AppRouter = () => {
 
   return(
     <Flex>
+      {(UStore.isAuth && (location.pathname !== '/login' && location.pathname !== '/registration')
+      && UStore.user.role !== 'user') 
+      ? <NavbarNested/> : <></>}
       <Stack style={{background: '#F8F9FA', height: '100vh'}} spacing="0rem">
-        {(UStore.isAuth && (location.pathname !== '/login' && location.pathname !== '/registration')) ? <Header/> : <></>}
+        {(UStore.isAuth && (location.pathname !== '/login' && location.pathname !== '/registration') 
+        && UStore.user.role === 'user') ? 
+        <Header/> : <></>}
         <Routes>
           {UStore.isAuth && authRoutes.map(({path, Component}) => 
             <Route key={path} path={path} element={<Component/>}/>

@@ -4,3 +4,5 @@ export const TEST_ROUTE = '/test';
 export const RESULT_ROUTE = '/test/result';
 export const LOGIN_ROUTE = '/login';
 export const REGISTRATION_ROUTE = '/registration';
+export const ANALYSIS_ROUTE = '/analysis';
+export const HISTORY_ROUTE = '/history';

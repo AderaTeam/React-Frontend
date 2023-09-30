@@ -28,7 +28,8 @@ const Header = () => {
       </NavLink>
       <Flex>
         {authRoutes.map(item => {
-          if (item.title !== 'Главная страница' && item.title !== 'Тестирование' && item.title !== 'Результат тестирования') {
+          if (item.title !== 'Главная страница' && item.title !== 'Тестирование' 
+          && item.title !== 'Результат тестирования' && !item.isAdmin) {
             return (
               <NavLink className={classes.navItem} to={item.path} key={item.path}>
                 <Text size={'md'} lh={'24px'}>{item.title}</Text>

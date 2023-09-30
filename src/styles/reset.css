@@ -99,7 +99,8 @@ legend {
 }
 
 #nav a.active, a.hover div{
-    background: #FFF5F5;
+    background: #4263EB;
+	color: white;
 	border-radius: 8px;
 }
 
