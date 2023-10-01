@@ -45,10 +45,6 @@ const CurrentAnalysisPage = () => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(analysisResultAll)
-  }, [analysisResultAll])
-
 	return (
 		<>
       {(analysisResult || analysisResultAll) && 

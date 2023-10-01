@@ -15,7 +15,6 @@ const App = observer(function () {
   useEffect(() => {
     if (localStorage.getItem('token')) {
       UStore.checkAuth();
-      console.log(UStore.user)
     }
   }, []);
 
