@@ -4,6 +4,7 @@ import CardExternalFrom from "./CardExternalForm";
 import { useContext, useEffect, useState } from "react";
 import CardPointForm from "./CardPointForm";
 import { Context } from "../../../main";
+import { observer } from "mobx-react-lite";
 
 type Props = {
   title: string,
@@ -17,14 +18,14 @@ const AnalysisCard = ({title} : Props) => {
   const { AStore } = useContext(Context);
 
     useEffect(() => {
-        setExternalLoading(AStore.isExternalLoading);
-        setPointLoading(AStore.isPointLoading);
+      setExternalLoading(AStore.isExternalLoading);
+      setPointLoading(AStore.isPointLoading);
     }, [AStore.isExternalLoading || AStore.isPointLoading])
 
   return (
-    <Stack spacing={24} bg={'#ffff'} style={{borderRadius: '16px'}} p={'32px 24px'}>
+    <Stack spacing={24} bg={'#ffff'} style={{borderRadius: '16px', position: 'relative'}} p={'32px 24px'}>
       <LoadingOverlay 
-        visible={(externalLoading && title==='Внутренний анализ') || (pointLoading && title==='Точечный анализ')} 
+        visible={(externalLoading && title==='Внешний анализ') || (pointLoading && title==='Точечный анализ')} 
         overlayBlur={2} loaderProps={{color: 'indigo.5'}}/>
       <CardTitle title={title}/>
       {title === 'Внешний анализ' ? <CardExternalFrom vvp={vvp} setVvp={setVvp}/> : 
@@ -33,4 +34,4 @@ const AnalysisCard = ({title} : Props) => {
   );
 };
 
-export default AnalysisCard;
+export default observer(AnalysisCard);

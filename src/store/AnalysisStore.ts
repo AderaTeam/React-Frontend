@@ -1,30 +1,38 @@
 import { makeAutoObservable } from "mobx";
 import AnalysisServices from "../services/AnalysisServices";
-import { IAnalysis } from "../models/IAnalysis";
+import { IAnalysis, IAnalysisAll } from "../models/IAnalysis";
 export default class AnalysisStore {
   isExternalLoading = false;
   isPointLoading = false;
 
-  currentExternalAnalysis = {} as IAnalysis | undefined;
+  currentExternalAnalysis = {} as IAnalysisAll | undefined;
+
   currentPointAnalysis = {} as IAnalysis | undefined;
+  currentPointAnalysisAll = {} as IAnalysisAll | undefined;
+
   analysis = {} as IAnalysis | undefined;
 
   constructor() {
     makeAutoObservable(this);
     this.currentExternalAnalysis = undefined;
     this.currentPointAnalysis = undefined;
+    this.currentPointAnalysisAll = undefined;
   }
 
   setAnalysis(analysis: IAnalysis | undefined) {
     this.analysis = analysis;
   }
 
-  setCurrentExternalAnalysis(analysis: IAnalysis | undefined) {
+  setCurrentExternalAnalysis(analysis: IAnalysisAll | undefined) {
     this.currentExternalAnalysis = analysis;
   }
 
   setCurrentPointAnalysis(analysis: IAnalysis | undefined) {
     this.currentPointAnalysis = analysis;
+  }
+
+  serCurrentPointAnalysisAll(analysis: IAnalysisAll | undefined) {
+    this.currentPointAnalysisAll = analysis;
   }
 
   setExternalLoading(isLoading: boolean) {
@@ -33,12 +41,14 @@ export default class AnalysisStore {
 
   setPointLoading(isLoading: boolean) {
     this.isPointLoading = isLoading;
-  }
+  };
 
   async externalAnalysis(vvp: string) {
     this.setExternalLoading(true);
     try {
       const response = await AnalysisServices.externalAnalysis(vvp);
+      this.setCurrentExternalAnalysis(response.data);
+      console.log(response.data)
     } catch (error) {
       console.log(error);
     } finally {
@@ -50,6 +60,7 @@ export default class AnalysisStore {
     this.setPointLoading(true);
     try {
       const response = await AnalysisServices.pointAnalysisAllPeople();
+      this.serCurrentPointAnalysisAll(response.data);
     } catch (error) {
       console.log(error);
     } finally {
@@ -57,10 +68,11 @@ export default class AnalysisStore {
     }
   }
 
-  async pointAnalysisId() {
+  async pointAnalysisId(id: string) {
     this.setPointLoading(true);
     try {
-      const response = await AnalysisServices.pointAnalysisId();
+      const response = await AnalysisServices.pointAnalysisId(id);
+      this.setCurrentPointAnalysis(response.data);
     } catch (error) {
       console.log(error);
     } finally {
@@ -68,10 +80,11 @@ export default class AnalysisStore {
     }
   }
 
-  async pointAnalysisBehavior() {
+  async pointAnalysisBehavior(type: string) {
     this.setPointLoading(true);
     try {
-      const response = await AnalysisServices.pointAnalysisBehavior()
+      const response = await AnalysisServices.pointAnalysisBehavior(type);
+      this.serCurrentPointAnalysisAll(response.data);
     } catch (error) {
       console.log(error);
     } finally {

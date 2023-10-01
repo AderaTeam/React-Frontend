@@ -5,6 +5,7 @@ import PointOption from "./PointOption";
 import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
 import { CURRENT_ANALYSIS_ROUT } from "../../../utils/const";
+import { rabbitReverse } from "../../CurrentAnalysisPage/rabbitReverse";
 
 const CardPointForm = () => {
   const [tab, setTab] = useState<string>('id');
@@ -26,9 +27,9 @@ const CardPointForm = () => {
 
   const handlePost = () => {
     if (tab === 'id') {
-      AStore.pointAnalysisId();
-    } else if (tab === 'behavior') {
-      AStore.pointAnalysisBehavior;
+      AStore.pointAnalysisId(selectedId);
+    } else if (tab === 'behavior' && behavior !== null) {
+      AStore.pointAnalysisBehavior(rabbitReverse[behavior]);
     } else if (tab === 'allPeople') {
       AStore.pointAnalysisAllPeople();
     };  
@@ -59,16 +60,25 @@ const CardPointForm = () => {
         <Button
           disabled={AStore.isExternalLoading || disable()}
           style={{marginLeft: 'auto'}}
-          onClick={
-            AStore.currentPointAnalysis ? 
+          onClick={(tab === 'allPeople' || tab === 'behavior')
+          ? 
+            (AStore.currentPointAnalysisAll ? 
             () => navigate(CURRENT_ANALYSIS_ROUT + '/' + 0) :
-            () => handlePost()
+            () => handlePost())
+          :
+            (AStore.currentPointAnalysis ? 
+            () => navigate(CURRENT_ANALYSIS_ROUT + '/' + 0) :
+            () => handlePost())
           }
           w={194} h={51} 
           color="indigo.7" 
           className="button"
         >
-          {AStore.currentPointAnalysis ? 'К результату' : 'Анализировать'}
+          {
+            (tab !=='allPeople' && tab !== 'behavior') ? 
+            AStore.currentPointAnalysis ? 'К результату' : 'Анализировать' : 
+            AStore.currentPointAnalysisAll ? 'К результату' : 'Анализировать'
+          }
         </Button>
       </Flex>
     </Stack>

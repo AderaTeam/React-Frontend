@@ -1,27 +1,33 @@
-# React + TypeScript + Vite
+# Описание компонентов
+**AppRouter** — компонент маршрутизации всего проекта, использует вспомогательный компонент маршрутизации, разделяет роутинг для авторизованных и неавторизированных пользователей. Предотвращает поломки других компонентов путем переноса пользователя на главную страницу.
+<br>**AuthPage** - компонент авторизации и логина, использует экземпляр класса UserStore.
+# Описание классов
+**UserStore** - класс, отвечающий за хранение информации о пользователе приложения, содержит себе методы регистрации, авторизации, выхода из аккаунта, проверки авторизации.
+<br> **AnalysisStore** - класс, который содержит в себе поля и методы для получения информации анализов, его результатов, информацию о начале и окончании выполнения разных видов анализа.
+# Описание констант
+- **HOME_ROUTE** - переход на главную страницу.
+- **PLAN_ROUTE** - переход на калькулятор.
+- **TEST_ROUTE** - переход на тестирование типа финансового поведения.
+- **RESULT_ROUTE** - переход на результат тестирования.
+- **LOGIN_ROUTE**- переход на страницу логина.
+- **REGISTRATION_ROUTE**- переход на страницу регистрации.
+- **ANALYSIS_ROUTE** переход на страницу проведения анализа.
+- **HISTORY_ROUTE** - переход на страницу истории анализов.
+- **CURRENT_ANALYSIS_ROUT** - страница текущего анализа.
+- **authRoutes** - определяет страницы доступные для навигации авторизированного пользователя.
+- **publicRoutes** - определяет страницы доступные для навигации неавторизированного пользователя.
+# Описание интерфейсов
+**Интерфейс пользователя** - интерфейс, имеющий следующие поля:
+- email: string;
+- id: string;
+- username: string;
+- role: string; 
+- type: string | null; - тип финансового поведения.
+- isPlan: boolean; - наличие инвестиционного плана
+<br>**Интерфейс результата анализа одного пользователя** - интерфейс, имеющий следующие поля:
+ - data: number[][],
+ - type: number,
+ <br>**Интерфейс результата анализа многих пользователей** - интерфейс, имеющий следующие поля:
+ - result: IAnalysis[]
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list

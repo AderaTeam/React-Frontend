@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Context } from "../../../main";
 import { useNavigate } from "react-router-dom";
 import { CURRENT_ANALYSIS_ROUT } from "../../../utils/const";
+import { observer } from "mobx-react-lite";
 
 interface props {
 	vvp: string,
@@ -57,10 +58,10 @@ const CardExternalFrom = ({vvp, setVvp}: props) => {
         color="indigo.7" 
         className="button"
       >
-          Анализировать
+          {AStore.currentExternalAnalysis ? 'К результату' : 'Анализировать'}
       </Button>
 		</Flex>
   );
 };
 
-export default CardExternalFrom;
+export default observer(CardExternalFrom);

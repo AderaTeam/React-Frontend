@@ -10,6 +10,7 @@ const AnalysisPage = () => {
         <AnalysisCard title="Внешний анализ"/>
         <AnalysisCard title="Точечный анализ"/>
       </Stack>
+      <></>
     </AnalistWrapper>
   );
 };

@@ -5,6 +5,7 @@ const HistoryPage = () => {
   return (
     <AnalistWrapper>
       <></>
+      <></>
     </AnalistWrapper>
   );
 };

@@ -22,10 +22,12 @@ const AppRouter = () => {
       setCurrentRoute(false);
       AStore.setCurrentExternalAnalysis(undefined);
       AStore.setCurrentPointAnalysis(undefined);
+      AStore.serCurrentPointAnalysisAll(undefined);
     };
   }, [location]);
 
-    if ((!AStore.currentExternalAnalysis && !AStore.currentPointAnalysis) && location.pathname === '/analysis/0') {
+    if ((!AStore.currentExternalAnalysis && !AStore.currentPointAnalysis && !AStore.currentPointAnalysisAll) 
+    && location.pathname === '/analysis/0') {
       return <Navigate to='/' replace/>
     };
 
@@ -48,7 +50,7 @@ const AppRouter = () => {
     return <Navigate to='/test/result' replace/>
   }
 
-  if (UStore.isAuth && UStore.user.role !== 'user' && (location.pathname !== '/history' && location.pathname !== '/analysis')) {
+  if (UStore.isAuth && UStore.user.role !== 'user' && (location.pathname !== '/history' && location.pathname !== '/analysis'  && location.pathname !== '/analysis/0')) {
     return <Navigate to='/analysis' replace/>
   }
 

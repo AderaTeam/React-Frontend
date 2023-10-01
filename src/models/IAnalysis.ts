@@ -1,3 +1,8 @@
 export interface IAnalysis {
-  id: string,
+  data: number[][],
+  type: number,
+}
+
+export interface IAnalysisAll {
+  result: IAnalysis[],
 }

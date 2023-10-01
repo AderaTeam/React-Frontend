@@ -2,7 +2,7 @@ import { Flex, Stack } from "@mantine/core";
 import TitleWrapper from "./TitleWrapper";
 
 type Props = {
-	children?: React.ReactNode;
+	children?: React.ReactNode[];
 };
 
 const AnalistWrapper = ({children} : Props) => {
@@ -12,10 +12,10 @@ const AnalistWrapper = ({children} : Props) => {
       <TitleWrapper/>
         <Flex justify="space-between" gap='1.5rem'>
         <Stack w={1248}>
-          {children ? children : <></>}
+          {children ? children[0] : <></>}
         </Stack>
         <Stack w={300}>
-          <></>
+          {children ? children[1] : <></>}
         </Stack>
         </Flex>
     </Stack>

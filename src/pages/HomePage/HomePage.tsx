@@ -1,22 +1,20 @@
-import { useContext } from "react";
-import { Context } from "../../main";
 import MainWrapper from "../../components/Wrappers/MainWrapper";
 import GuideCard from "./components/GuideCard";
-import { observer } from "mobx-react-lite";
 import { Stack } from "@mantine/core";
 import UserInfo from "./components/UserInfo";
+import PlanCard from "./components/PlanCard";
 
 const HomePage = () => {
-  const { UStore } = useContext(Context);
 
   return (
     <MainWrapper>
       <Stack spacing={16}>
         <UserInfo/>
+        <PlanCard/>
       </Stack>
-      {UStore.user.type ? <></> : <GuideCard/>}
+      <GuideCard/>
     </MainWrapper>
   );
 };
 
-export default observer(HomePage);
+export default HomePage;
