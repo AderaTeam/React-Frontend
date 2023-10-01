@@ -9,6 +9,7 @@ interface props {
 }
 
 const TableComponent = ({analysisResultAll}: props) => {
+  if (analysisResultAll) {
   const arr = analysisResultAll.result[0].data[0];
   var date = new Date();
 
@@ -44,7 +45,8 @@ const TableComponent = ({analysisResultAll}: props) => {
     </div>
     </>
     
-  );
+  );} 
+  return <></>
 }
 
 export default TableComponent;
